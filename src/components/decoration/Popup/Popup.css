@@ -1,0 +1,12 @@
+.popup {
+  padding: 0 10px;
+  background-color: #d6d6d688;
+  border: 2px solid lightgray;
+  border-radius: 10px;
+  position: absolute;
+  display: block;
+}
+
+.popup__text  {
+  font-size: 14px;
+}

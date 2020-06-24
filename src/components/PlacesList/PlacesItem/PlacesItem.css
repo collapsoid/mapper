@@ -1,0 +1,39 @@
+.places-list__place {
+  position: relative;
+  height: 30px;
+  background-color: #57d4fd3a;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 30px;
+  color: #3f3f3f;
+  margin-top: 5px;
+}
+
+.places-list__place:hover {
+  cursor: pointer;
+  background-color: #57d3fd98;
+}
+
+.place__remove-button {
+  display: block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  line-height: 15px;
+  text-align: center;
+  position: absolute;
+  right: 4px;
+  top: 0;
+}
+
+.place__remove-button:hover {
+  background-color: #ffffffd3;
+}
+
+.place_user-defined {
+  background-color: #98fb98ab;
+}
+
+.place_user-defined:hover {
+  background-color: #7ff37f;
+}
