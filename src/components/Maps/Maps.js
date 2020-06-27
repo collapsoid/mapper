@@ -9,8 +9,7 @@ import apikey from '../../API/apikey';
 import { getYMapsAPI, getMapInstance } from '../../store/actions';
 import Placemark from './Placemark/Placemark';
 
-const Maps = ({getYMapsAPI, getMapInstance, mapInstance, places}) => {
-  const [mapCenter, setMapCenter] = useState([55.75, 37.57]);
+const Maps = ({getYMapsAPI, getMapInstance, places, mapState}) => {
   const [mapRef, setMapRef] = useState(null); // Without this hook, an infinite loop of value assignment will appear
 
   const placemarks = places.map(place => <Placemark {...place} key={place.id} />);
@@ -25,21 +24,20 @@ const Maps = ({getYMapsAPI, getMapInstance, mapInstance, places}) => {
     <YMaps query={{load: ['geocode'], apikey: apikey}}>
       <Map
         className="map"
-        state={{center: mapCenter, zoom: 9}}
+        state={mapState}
         onLoad={YMaps => getYMapsAPI(YMaps)}
-        instanceRef={map => setMapRef(map)}
-        onBoundsChange={() => setMapCenter(mapInstance.getCenter())}
-        >
+        instanceRef={map => setMapRef(map)}>
           {placemarks}
       </Map>
     </YMaps>
   );
 };
 
-const mapState = ({places, YMaps}) => {
+const mapState = ({places, YMaps: {mapState, mapInstance}}) => {
   return {
     places,
-    mapInstance: YMaps.mapInstance
+    mapState,
+    mapInstance
   };
 };
 
