@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { geocoder } from '../../../store/actions';
 
-const Placemark = ({name, isUserDefined, coordinates, geocoder}) => {
+const Placemark = ({name, isUserDefined, coordinates, geocoder, mapInstance}) => {
   const properties = {
     hintContent: name
   };
@@ -18,16 +18,20 @@ const Placemark = ({name, isUserDefined, coordinates, geocoder}) => {
     geocoder(name, isUserDefined);
   }, [name, isUserDefined, geocoder]);
 
+	if (!isUserDefined && coordinates) {
+		mapInstance.setCenter(coordinates, 12);
+	}
+
   return <Mark 
             modules={['geoObject.addon.hint']}
             geometry={coordinates} 
             properties={properties}
-            options={options}
-            />;
+            options={options} />;
 };
 
-const mapState = ({placemarks}) => ({
-  placemarks
+const mapState = ({placemarks, YMaps: {mapInstance}}) => ({
+  placemarks,
+	mapInstance
 });
 
 export default connect(mapState, {geocoder})(Placemark);
