@@ -6,9 +6,11 @@ const places = (state = [], action) => {
     case 'DELETE_PLACE':
       return state.filter(place => place.id !== action.id);
 
-      case 'GET_PLACE_COORDINATES':
-        return state.map(place => place.name === action.payload.name ? {...place, coordinates: action.payload.coordinates} : place);
-  
+		case 'CHANGE_COORDINATES':
+			const {name, coordinates} = action.payload;
+
+			return state.map(place => place.name === name ? {...place, coordinates} : place);
+
     default:
       return state;
   }

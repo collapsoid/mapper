@@ -1,8 +1,8 @@
-import addPlace from './addPlace';
+import {addPlace, geocoder} from './addPlace';
 import deletePlace from './deletePlace';
+import changeCoordinates from './changeCoordinates';
 import getYMapsAPI from './getYMapsAPI';
 import getMapInstance from './getMapInstance';
-import { getPlaceCoordinates, geocoder } from './getPlaceCoordinates';
 import setMapState from './setMapState';
 
-export { addPlace, deletePlace, getYMapsAPI, getMapInstance, getPlaceCoordinates, geocoder, setMapState };
+export {addPlace, deletePlace, changeCoordinates, getYMapsAPI, getMapInstance, geocoder, setMapState};

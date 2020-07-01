@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import React, {useState} from 'react';
+import {connect} from 'react-redux';
 
 import './SearchBar.css';
 
-import { addPlace } from '../../store/actions';
+import {geocoder} from '../../store/actions';
 
 import Popup from '../decoration/Popup/Popup';
 
-const SearchBar = ({places, addPlace}) => {
+const SearchBar = ({places, geocoder}) => {
   const [value, setValue] = useState('');
   const [badName, setBadName] = useState(false);
 
@@ -30,13 +30,13 @@ const SearchBar = ({places, addPlace}) => {
       isUserDefined: value.startsWith('!') ? true : false
     };
 
-    if (badName) {
+    if (badName || place.name === '!') {
       return;
     }
 
     setValue('');
 
-    return addPlace(place);
+		return geocoder(place.name, place.isUserDefined);
   };
 
   return (
@@ -60,4 +60,4 @@ const mapState = ({places}) => {
   };
 };
 
-export default connect(mapState, {addPlace})(SearchBar);
+export default connect(mapState, {geocoder})(SearchBar);
