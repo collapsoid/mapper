@@ -13,5 +13,11 @@ Here is a list of useful features to help you travel:
 
  What an abundance of possibilities, you think, how can I deal with all this? Give it a try. All these are just tools that will greatly assist you in exploring the whole world! And they are incredibly useful.  
  *Enjoy your use!*
-
+ 
+ TODO:
+ - [x] Ability for using the map
+ - [x] Placemarks
+ - [x] Routing
+ - [ ] Drag'N'Drop for the list of places
+ 
  The application is built on the basis of a test task provided by Hexlet in conjunction with Funbox. [Link](https://dl.funbox.ru/qt-js.pdf) to the task. 
