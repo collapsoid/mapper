@@ -7,9 +7,9 @@ import Maps from './Maps/Maps';
 const App = () => {
   return (
     <>
-			<SearchBar />
-			<PlacesList />
-			<Maps />
+      <SearchBar />
+      <PlacesList />
+      <Maps />
     </>
   );
 }

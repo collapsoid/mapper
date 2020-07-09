@@ -1,22 +1,27 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
+import {DndProvider} from 'react-dnd';
+import {HTML5Backend} from 'react-dnd-html5-backend';
 
 import './PlacesList.css';
 
-import PlacesItem from './PlacesItem/PlacesItem';
+import PlaceSlot from './PlaceSlot/PlaceSlot';
+import PlacesItem from './PlaceSlot/PlacesItem/PlacesItem';
 
 const PlacesList = ({places}) => {
-  const placesItems = places.map(place => <PlacesItem {...place} key={place.id} />);
-
   return (
-    <div className="places-list">{placesItems}</div>
+    <DndProvider backend={HTML5Backend}>
+      <div className="places-list">
+
+	{places.map((place, index) => <PlaceSlot dropIndex={index} children={<PlacesItem {...place} targetIndex={index} />} key={place.id} />)}
+
+      </div>
+    </DndProvider>
   );
 };
 
-const mapState = ({places}) => {
-  return {
-    places
-  };
-};
+const mapState = ({places}) => ({
+  places
+});
 
-export default connect(mapState, null)(PlacesList);
+export default connect(mapState)(PlacesList);

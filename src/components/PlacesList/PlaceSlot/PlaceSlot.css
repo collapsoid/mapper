@@ -1,0 +1,6 @@
+.places-list__place-slot {
+  position: relative;
+  height: 30px;
+  margin-top: 5px;
+  border-radius: 5px;
+}

@@ -1,12 +1,13 @@
 .places-list__place {
-  position: relative;
-  height: 30px;
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
   background-color: #57d4fd3a;
   border-radius: 5px;
   text-align: center;
   line-height: 30px;
   color: #3f3f3f;
-  margin-top: 5px;
 }
 
 .places-list__place:hover {
