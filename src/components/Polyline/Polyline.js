@@ -3,13 +3,13 @@ import {connect} from 'react-redux';
 import {Polyline as Poly} from 'react-yandex-maps';
 
 const Polyline = ({places}) => {
-	const coordinates = places.map(place => place.coordinates);
+  const coordinates = places.map(place => place.coordinates);
 
-	return <Poly geometry={coordinates} />;
+  return <Poly geometry={coordinates} />;
 };
 
 const mapState = ({places}) => ({
-	places
+  places
 });
 
 export default connect(mapState)(Polyline);

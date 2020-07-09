@@ -29,9 +29,9 @@ const Maps = ({getYMapsAPI, getMapInstance, places, mapState, geocoder}) => {
         onLoad={YMaps => getYMapsAPI(YMaps)}
         instanceRef={map => setMapRef(map)}>
 
-				{placemarks}
+	{placemarks}
 
-				<Polyline />
+	<Polyline />
 
       </Map>
     </YMaps>

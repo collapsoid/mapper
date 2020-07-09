@@ -14,21 +14,21 @@ const Placemark = ({name, isUserDefined, coordinates, mapInstance, changeCoordin
     preset: isUserDefined ? 'islands#greenIcon' : 'islands#lightBlueIcon'
   };
 
-	if (!isUserDefined && coordinates) {
-		mapInstance.setCenter(coordinates, 12);
-	}
+  if (!isUserDefined && coordinates) {
+    mapInstance.setCenter(coordinates, 12);
+  }
 
   return <Mark 
             modules={['geoObject.addon.hint']}
             geometry={coordinates} 
             properties={properties}
             options={options} 
-						onGeometryChange={(e) => changeCoordinates(name, e.originalEvent.target.geometry._coordinates)}
-				/>;
+	    onGeometryChange={(e) => changeCoordinates(name, e.originalEvent.target.geometry._coordinates)}
+	  />;
 };
 
 const mapState = ({YMaps: {mapInstance}}) => ({
-	mapInstance
+  mapInstance
 });
 
 export default connect(mapState, {changeCoordinates})(Placemark);
