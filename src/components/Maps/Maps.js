@@ -10,7 +10,7 @@ import {getYMapsAPI, getMapInstance} from '../../store/actions';
 import Placemark from '../Placemark/Placemark';
 import Polyline from '../Polyline/Polyline';
 
-const Maps = ({getYMapsAPI, getMapInstance, places, mapState, geocoder}) => {
+const Maps = ({getYMapsAPI, getMapInstance, places, mapState}) => {
   const [mapRef, setMapRef] = useState(null); // Without this hook, an infinite loop of value assignment will appear
 
   const placemarks = places.map(place => <Placemark {...place} key={place.id} />);
