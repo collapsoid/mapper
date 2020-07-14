@@ -1,8 +1,6 @@
 .places-list {
   width: 214px;
   height: 650px;
-  display: flex;
-  flex-direction: column;
   overflow: auto;
   position: absolute;
   top: 45px;
